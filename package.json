@@ -1,0 +1,21 @@
+{
+  "name": "proj",
+  "version": "1.0.0",
+  "description": "hi",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "author": "Nikatov Vladislav",
+  "license": "ISC"
+}
