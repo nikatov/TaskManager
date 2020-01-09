@@ -25,6 +25,30 @@ class AjaxModule {
             callback
         });
     }
+    doPut({
+        url = '/',
+        body = null,
+        callback } = {}
+    ) {
+        this._ajax({
+            method: 'PUT',
+            url,
+            body,
+            callback
+        });
+    }
+    doDelete({
+        url = '/',
+        body = null,
+        callback } = {}
+    ) {
+        this._ajax({
+            method: 'DELETE',
+            url,
+            body,
+            callback
+        });
+    }
 
     doPromiseGet({ url = '/', body = null }) {
         return new Promise(function (res, rej) {
