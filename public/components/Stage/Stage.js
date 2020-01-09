@@ -14,7 +14,7 @@ export class Stage {
         };
     }
 
-    render() {
+    render(callback) {
         console.log('Рендер Stage, this._data:', this._data);
         let elem = document.createElement("stage_" + this._data.id);
         elem.innerHTML = "<h1>" + this._data.id + ". " + this._data.name + "</h1>";
@@ -33,7 +33,7 @@ export class Stage {
 
                     let card = new Card(elem);
                     card.setData(i, responseBody[i].name)
-                    card.render();
+                    card.render(callback);
 
                     // addevetlistener тут
                     // listadd css

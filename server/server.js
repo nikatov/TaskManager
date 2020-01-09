@@ -11,34 +11,54 @@ app.use(morgan('dev'));
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
 app.use(body.json());
 
-const stages = {
-  "1": {
-    "name": "начальная стадия"
-  },
-  "2": {
-    "name": "вторая стадия"
-  }
-};
+let stages = ["начальная стадия",
+              "вторая стадия"];
 
-const cards = {
-  "1": {
+let cards = [
+  {
     "name": "первая карточка",
-    "stage": 2
-  },
-  "2": {
-    "name": "вторая карточка",
     "stage": 1
   },
-  "3": {
+  {
+    "name": "вторая карточка",
+    "stage": 0
+  },
+  {
     "name": "третья карточка",
-    "stage": 2
+    "stage": 1
   }
-};
+];
+// let stages = [];
+// let cards = [];
+
 
 app.get('/api/stage', function (req, res) {
+  let json = {}
+  for (let i in stages) {
+    json[i] = { "name": stages[i] };
+  }
   res
-  .json(stages)
+  .json(json)
   .status(200)
+  .end();
+});
+
+app.post('/api/stage', function (req, res) {
+  let name = req.body.name;
+  stages.unshift(name);
+  for (let i in cards) {
+    cards[i].stage = cards[i].stage + 1;
+  }
+  res
+  .status(201)
+  .end();
+});
+
+app.delete('/api/stage', function (req, res) {
+  let id = req.body.id;
+  stages.splice(id, 1);
+  res
+  .status(201)
   .end();
 });
 
@@ -54,6 +74,40 @@ app.get('/api/card', function (req, res) {
   res
   .json(cardList)
   .status(200).end();
+});
+
+app.post('/api/card', function (req, res) {
+  let name = req.body.name;
+  console.log('name', name);
+  console.log('cards', cards);
+  cards.push({
+    "name": name,
+    "stage": 0
+  });
+  console.log('cards', cards);
+  res
+  .status(201)
+  .end();
+});
+
+app.delete('/api/card', function (req, res) {
+  let id = req.body.id;
+  cards.splice(id, 1);
+  res
+  .status(201)
+  .end();
+});
+
+app.put('/api/next', function (req, res) {
+  let id = req.body.id;
+  console.log('id', id);
+  cards[id].stage = cards[id].stage + 1;
+  if (cards[id].stage >= stages.len) {
+    cards.splice(id, 1);
+  }
+  res
+  .status(201)
+  .end();
 });
 
 const port = process.env.PORT || 3000;

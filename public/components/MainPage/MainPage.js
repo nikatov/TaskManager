@@ -1,24 +1,24 @@
-import {Menu} from '/components/Menu/Menu.js';
+import {MenuComponent} from '/components/Menu/Menu.js';
 import {Stage} from '/components/Stage/Stage.js';
 import {Ajax} from '/modules/AjaxModule.js';
 
 class MainPageSingleton {
     constructor(parent = document.body) {
         this._parent = parent;
+        this.elem = document.createElement("MainPage");
+        this.Menu = new MenuComponent(this.elem, this._render);
     }
 
     render() {
-
-        console.log('Рендер MainPage, this._data:', this._data);
-        let elem = document.createElement("MainPage");
-
-        Menu.render();
+        this.elem.innerHTML = '';
+        console.log('Рендер MainPage');
+        this.Menu.render(this.render.bind(this));
 
         Ajax.doPromiseGet({
             url: '/api/stage',
             body: null
         })
-        .then(function (obj) {
+        .then( obj => {
             const { responseText } = obj;
             try {
                 const responseBody = JSON.parse(responseText);
@@ -27,9 +27,9 @@ class MainPageSingleton {
 
                     console.log(i, responseBody[i]);
 
-                    const stage = new Stage(elem);
+                    const stage = new Stage(this.elem);
                     stage.setData(i, responseBody[i].name)
-                    stage.render();
+                    stage.render(this.render.bind(this));
 
                     // addevetlistener тут
                     // listadd css
@@ -41,11 +41,11 @@ class MainPageSingleton {
                 return;
             }
         })
-        .catch(function (obj) {
+        .catch( obj => {
             console.error(obj);
             return;
         })
-        this._parent.appendChild(elem);
+        this._parent.appendChild(this.elem);
     }
 }
 export let MainPage = new MainPageSingleton()
