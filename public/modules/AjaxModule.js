@@ -93,7 +93,7 @@ class AjaxModule {
         callback } = {}
     ) {
         const xhr = new XMLHttpRequest();
-        xhr.open(method, url, true);
+        xhr.open(method, '127.0.0.1' + url, true);
         xhr.withCredentials = true;
 
         xhr.addEventListener('readystatechange', function () {
