@@ -5,14 +5,21 @@ import {Ajax} from '/modules/AjaxModule.js';
 class MainPageSingleton {
     constructor(parent = document.body) {
         this._parent = parent;
-        this.elem = document.createElement("MainPage");
+
+        this.elem = document.createElement('div');
+
         this.Menu = new MenuComponent(this.elem, this._render);
+        this.Menu.render(this.render.bind(this));
+
+        this.place = document.createElement('div');
+        this.place.classList.add('board-place');
+
+        this.elem.appendChild(this.place);
+        this._parent.appendChild(this.elem);
     }
 
     render() {
-        this.elem.innerHTML = '';
-        console.log('Рендер MainPage');
-        this.Menu.render(this.render.bind(this));
+        this.place.innerHTML = '';
 
         Ajax.doPromiseGet({
             url: '/api/stage',
@@ -27,13 +34,9 @@ class MainPageSingleton {
 
                     console.log(i, responseBody[i]);
 
-                    const stage = new Stage(this.elem);
+                    const stage = new Stage(this.place);
                     stage.setData(i, responseBody[i].name)
                     stage.render(this.render.bind(this));
-
-                    // addevetlistener тут
-                    // listadd css
-                    // appendChild
                 }
             }
             catch (err) {
@@ -45,7 +48,6 @@ class MainPageSingleton {
             console.error(obj);
             return;
         })
-        this._parent.appendChild(this.elem);
     }
 }
 export let MainPage = new MainPageSingleton()

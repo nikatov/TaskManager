@@ -16,8 +16,9 @@ export class Stage {
 
     render(callback) {
         console.log('Рендер Stage, this._data:', this._data);
-        let elem = document.createElement("stage_" + this._data.id);
-        elem.innerHTML = "<h1>" + this._data.id + ". " + this._data.name + "</h1>";
+        let elem = document.createElement('div');
+        elem.classList.add('board');
+        elem.innerHTML = "<h2>" + this._data.id + ". " + this._data.name + "</h2>";
 
         Ajax.doPromiseGet({
             url: '/api/card/?id=' + this._data.id,

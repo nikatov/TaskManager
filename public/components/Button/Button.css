@@ -1,0 +1,48 @@
+.btn-red {
+	text-decoration: none;
+	outline: none;
+	display: inline-block;
+	padding: 8px 20px;
+	margin: 6px 10px;
+	position: relative;
+	overflow: hidden;
+	border: 1px solid rgba(106,0,1,0.92);
+	border-radius: 8px;
+
+	transition: .2s ease-in-out;
+	cursor:pointer;
+
+	-webkit-backdrop-filter: blur(1px) grayscale(0.1);
+    backdrop-filter: blur(1px) grayscale(0.1);
+
+	background-color: rgba(106, 0, 1, 0.1);
+}
+
+.btn-red:hover {
+	background: rgba(200,56,0,0.59);
+	color: #fff;
+}
+
+.btn-green {
+	text-decoration: none;
+	outline: none;
+	display: inline-block;
+	padding: 8px 20px;
+	margin: 6px 10px;
+	position: relative;
+	overflow: hidden;
+	border: 1px solid rgba(0, 64, 1,0.92);
+	border-radius: 8px;
+
+	transition: .2s ease-in-out;
+	cursor:pointer;
+
+	-webkit-backdrop-filter: blur(1px) grayscale(0.1);
+    backdrop-filter: blur(1px) grayscale(0.1);
+	background-color: rgba(0, 64, 1, 0.1);
+}
+
+.btn-green:hover {
+	background: rgba(50, 164, 1,0.59);
+	color: #fff;
+}

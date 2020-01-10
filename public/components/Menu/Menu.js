@@ -12,38 +12,60 @@ export class MenuComponent {
     render(callback) {
         console.log("Рендер меню");
         let menu = document.createElement("div");
+        menu.classList.add('flex-container');
+        // menu.classList.add('header');
 
+        // const text = document.createElement('a');
+        // text.innerHtml = 'TODO';
+        // text.classList.add('stamp-words');
+        // menu.appendChild(text);
+        
         const stageInput = document.createElement('input');
         stageInput.type = 'text';
         stageInput.name = 'name';
-        stageInput.placeholder = 'Название состояния';
+        stageInput.placeholder = 'Введите название стадии...';
+        stageInput.classList.add('one-line-input');
 
         const stageBtn = document.createElement('input');
         stageBtn.type = 'submit';
-        stageBtn.value = 'Добавить состояние';
+        stageBtn.value = 'Добавить стадию';
+        stageBtn.classList.add('btn-green');
 
         const stageForm = document.createElement('form');
+        stageForm.classList.add('one-line-form')
         stageForm.appendChild(stageInput);
         stageForm.appendChild(stageBtn);
+
+        const stageContainer = document.createElement('div')
+        stageContainer.classList.add('inline-flex-container');
+        stageContainer.appendChild(stageForm);
 
         const cardInput = document.createElement('input');
         cardInput.type = 'text';
         cardInput.name = 'name';
-        cardInput.placeholder = 'Название карточки';
+        cardInput.placeholder = 'Введите название задачи...';
+        cardInput.classList.add('one-line-input');
 
         const cardBtn = document.createElement('input');
         cardBtn.type = 'submit';
-        cardBtn.value = 'Добавить карточку';
+        cardBtn.value = 'Добавить задачу';
+        cardBtn.classList.add('btn-green');
 
         const cardForm = document.createElement('form');
+        cardForm.classList.add('one-line-form')
         cardForm.appendChild(cardInput);
         cardForm.appendChild(cardBtn);
+
+        const cardContainer = document.createElement('div')
+        cardContainer.classList.add('inline-flex-container');
+        cardContainer.appendChild(cardForm);
 
         stageForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const name = stageForm.elements['name'].value;
+            stageForm.elements['name'].value = '';
             if (name == '') {
-                alert('Внимание! Необходимо ввести название состояния.')
+                alert('Внимание! Необходимо ввести название стадии.')
                 return;
             }
             Ajax.doPost({
@@ -63,8 +85,9 @@ export class MenuComponent {
         cardForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const name = cardForm.elements['name'].value;
+            cardForm.elements['name'].value = '';
             if (name == '') {
-                alert('Внимание! Необходимо ввести название карточки.')
+                alert('Внимание! Необходимо ввести название задачи.')
                 return;
             }
             Ajax.doPost({
@@ -81,8 +104,8 @@ export class MenuComponent {
             });
         });
 
-        menu.appendChild(stageForm);
-        menu.appendChild(cardForm);
+        menu.appendChild(stageContainer);
+        menu.appendChild(cardContainer);
 
         this._parent.appendChild(menu);
     }

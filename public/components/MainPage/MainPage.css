@@ -1,0 +1,6 @@
+.board-place  {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 10px;
+    border-radius: 5px;
+}

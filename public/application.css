@@ -1,0 +1,21 @@
+@import url('/components/Card/Card.css');
+@import url('/components/MainPage/MainPage.css');
+@import url('/components/Menu/Menu.css');
+@import url('/components/Stage/Stage.css');
+@import url('/components/Button/Button.css');
+
+body {
+	height: 100vh;
+	text-align: center;
+
+    background-image:url(./img/background.jpg);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.flex-container {
+	display: flex;
+	justify-content: space-around;
+}

@@ -17,11 +17,12 @@ export class Card {
         console.log("Рендер Card", this._data);
         let id = this._data.id;
 
-        let elem = document.createElement("card_" + id);
-        elem.innerHTML = "<h1>" + id + ". " + this._data.name + "</h1>";
-
+        let elem = document.createElement('div');
+        elem.innerHTML = "<p>" + id + ". " + this._data.name + "</p>";
+        elem.classList.add('task');
         let nextBtn = document.createElement('button');
         nextBtn.innerHTML = 'Завершить';
+        nextBtn.classList.add('btn-green');
         elem.appendChild(nextBtn);
         
         
@@ -43,6 +44,7 @@ export class Card {
 
         let deleteBtn = document.createElement('button');
         deleteBtn.innerHTML = 'Удалить';
+        deleteBtn.classList.add('btn-red');
         elem.appendChild(deleteBtn);
 
         deleteBtn.addEventListener('click', function(e) {

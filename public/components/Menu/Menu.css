@@ -1,0 +1,55 @@
+.one-line-form {
+	margin-bottom: auto;
+	margin-top: auto;
+	height: auto;
+	background-color: rgba(255, 255, 255, 0.4);
+	border: 1px solid;
+	border-radius: 30px;
+	padding: 5px;
+	-webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+}
+
+.one-line-input {
+	color: black;
+	border: 0;
+	outline: 0;
+	background: none;
+	width: 0;
+	padding-top: 8px;
+	vertical-align: middle;
+	transition: width 0.4s linear;
+}
+
+.one-line-form:hover {
+	padding-left: 20px;
+}
+
+.one-line-form:hover > .one-line-input {
+	padding-top: 8px;
+	caret-color: black;
+	width: 25vw;
+	transition: width 0.4s linear;
+}
+
+.one-line-form:hover > .one-line-icon {
+	background: rgba(255,255,255, 0.5);
+	text-decoration: none;
+}
+
+.one-line-icon {
+	float: right;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.stamp-words {
+	font-size: 60px;
+	background-color: rgba(0, 0, 0, 0.6);
+	-webkit-background-clip: text;
+	-moz-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	text-shadow: rgba(255,255,255,0.5) 0px 3px 3px;
+}
