@@ -1,7 +1,7 @@
 {
     "version": 2,
     "name": "TaskManager",
-    "alias": ["tm"],
+    "alias": ["task-manager"],
     "builds": [
         { "src": "package.json", "use": "@now/static-build" },
         { "src": "server/server.js", "use": "@now/node-server" },
