@@ -18,7 +18,7 @@ export class Card {
         let id = this._data.id;
 
         let elem = document.createElement('div');
-        elem.innerHTML = "<p>" + id + ". " + this._data.name + "</p>";
+        elem.innerHTML = "<p>" + this._data.name + "</p>";
         elem.classList.add('task');
         let nextBtn = document.createElement('button');
         nextBtn.innerHTML = 'Завершить';

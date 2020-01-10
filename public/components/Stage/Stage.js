@@ -18,7 +18,7 @@ export class Stage {
         console.log('Рендер Stage, this._data:', this._data);
         let elem = document.createElement('div');
         elem.classList.add('board');
-        elem.innerHTML = "<h2>" + this._data.id + ". " + this._data.name + "</h2>";
+        elem.innerHTML = "<h2>" + this._data.name + "</h2>";
 
         Ajax.doPromiseGet({
             url: '/api/card/?id=' + this._data.id,
@@ -35,10 +35,6 @@ export class Stage {
                     let card = new Card(elem);
                     card.setData(i, responseBody[i].name)
                     card.render(callback);
-
-                    // addevetlistener тут
-                    // listadd css
-                    // appendChild
                 }
             }
             catch (err) {
