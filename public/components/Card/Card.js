@@ -36,8 +36,7 @@ export class Card {
                         callback();
                         return;
                     }
-                    const {error} = JSON.parse(responseText);
-                    alert(error);
+                    console.log(error);
                 }
             });
         });
@@ -57,8 +56,7 @@ export class Card {
                         callback();
                         return;
                     }
-                    const {error} = JSON.parse(responseText);
-                    alert(error);
+                    console.log(error);
                 }
             });
         });
