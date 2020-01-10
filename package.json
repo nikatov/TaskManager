@@ -14,7 +14,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "build": "next build"
   },
   "author": "Nikatov Vladislav",
   "license": "ISC"
