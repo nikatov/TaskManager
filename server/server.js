@@ -11,8 +11,8 @@ app.use(morgan('dev'));
 app.use(express.static(path.resolve(__dirname, '..', 'public')));
 app.use(body.json());
 
-let stages = [];
-let cards = [];
+var stages = [];
+var cards = [];
 
 app.get('/api/stage', function (req, res) {
   let json = {}
