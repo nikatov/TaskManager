@@ -23,6 +23,10 @@ app.get('/api/stage', function (req, res) {
   .json(json)
   .status(200)
   .end();
+
+  console.log('');
+  console.log(stages);
+  console.log(cards);
 });
 
 app.post('/api/stage', function (req, res) {
@@ -34,6 +38,10 @@ app.post('/api/stage', function (req, res) {
   res
   .status(201)
   .end();
+
+    console.log('');
+  console.log(stages);
+  console.log(cards);
 });
 
 app.delete('/api/stage', function (req, res) {
@@ -42,6 +50,10 @@ app.delete('/api/stage', function (req, res) {
   res
   .status(201)
   .end();
+
+  console.log('');
+  console.log(stages);
+  console.log(cards);
 });
 
 app.get('/api/card', function (req, res) {
@@ -56,6 +68,10 @@ app.get('/api/card', function (req, res) {
   res
   .json(cardList)
   .status(200).end();
+
+  console.log('');
+  console.log(stages);
+  console.log(cards);
 });
 
 app.post('/api/card', function (req, res) {
@@ -70,6 +86,10 @@ app.post('/api/card', function (req, res) {
   res
   .status(201)
   .end();
+
+  console.log('');
+  console.log(stages);
+  console.log(cards);
 });
 
 app.delete('/api/card', function (req, res) {
@@ -78,6 +98,10 @@ app.delete('/api/card', function (req, res) {
   res
   .status(201)
   .end();
+
+  console.log('');
+  console.log(stages);
+  console.log(cards);
 });
 
 app.put('/api/next', function (req, res) {
@@ -90,6 +114,10 @@ app.put('/api/next', function (req, res) {
   res
   .status(201)
   .end();
+
+  console.log('');
+  console.log(stages);
+  console.log(cards);
 });
 
 const port = process.env.PORT || 3000;
